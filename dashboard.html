@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Disease Prediction</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+color:white;
+padding-top:50px;
+}
+
+button{
+
+padding:10px 20px;
+margin:10px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+</style>
+
+<script>
+
+function predict(symptom){
+
+var disease="";
+
+if(symptom=="fever"){
+
+disease="Possible Disease: Viral Fever";
+
+}
+
+else if(symptom=="cough"){
+
+disease="Possible Disease: Common Cold";
+
+}
+
+else if(symptom=="headache"){
+
+disease="Possible Disease: Migraine";
+
+}
+
+else if(symptom=="stomach"){
+
+disease="Possible Disease: Food Poisoning";
+
+}
+
+document.getElementById("result").innerHTML=disease;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Select Your Symptom</h1>
+
+<button onclick="predict('fever')">Fever</button>
+<button onclick="predict('cough')">Cough</button>
+<button onclick="predict('headache')">Headache</button>
+<button onclick="predict('stomach')">Stomach Pain</button>
+
+<h2 id="result"></h2>
+
+</body>
+</html>
