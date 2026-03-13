@@ -13,10 +13,18 @@ function register(){
 var user=document.getElementById("newuser").value;
 var pass=document.getElementById("newpass").value;
 
+if(user=="" || pass==""){
+alert("Please enter username and password");
+return;
+}
+
 localStorage.setItem("username",user);
 localStorage.setItem("password",pass);
 
-alert("Account Created");
+alert("Account Created Successfully");
+
+// direct dashboard open
+window.location="dashboard.html";
 
 }
 
@@ -32,7 +40,8 @@ if(user===savedUser && pass===savedPass){
 
 window.location="dashboard.html";
 
-}else{
+}
+else{
 
 alert("Wrong Username or Password");
 
