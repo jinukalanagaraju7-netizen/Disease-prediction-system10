@@ -2,40 +2,75 @@
 <html>
 <head>
 
-<title>Disease Prediction</title>
+<title>Disease Prediction System</title>
 
 <style>
 
 body{
 font-family:Arial;
 text-align:center;
-background:linear-gradient(45deg,#00c6ff,#0072ff);
+background:linear-gradient(45deg,#ff6a00,#ee0979,#00c6ff,#0072ff);
+background-size:400% 400%;
+animation:bg 8s infinite;
 color:white;
 padding:30px;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .box{
 background:white;
 color:black;
-padding:20px;
-border-radius:10px;
+padding:25px;
+border-radius:15px;
 display:inline-block;
+width:300px;
+box-shadow:0px 0px 20px rgba(0,0,0,0.4);
+}
+
+h1{
+margin-bottom:20px;
+}
+
+.symptoms{
+text-align:left;
+height:300px;
+overflow-y:auto;
+}
+
+label{
+display:block;
+padding:4px;
 }
 
 button{
-padding:10px 20px;
-margin-top:20px;
+margin-top:15px;
+padding:12px 25px;
 border:none;
-border-radius:5px;
+border-radius:8px;
 background:#0072ff;
 color:white;
+font-size:16px;
 cursor:pointer;
+}
+
+button:hover{
+background:#ff0066;
 }
 
 #result{
 margin-top:30px;
-font-size:22px;
+font-size:24px;
 font-weight:bold;
+background:white;
+color:black;
+padding:15px;
+border-radius:10px;
+display:inline-block;
 }
 
 </style>
@@ -44,41 +79,56 @@ font-weight:bold;
 
 function predictDisease(){
 
-var symptoms=[];
-
+var selected=[];
 var checkboxes=document.querySelectorAll("input[name='symptom']:checked");
 
 checkboxes.forEach(function(box){
-symptoms.push(box.value);
+selected.push(box.value);
 });
 
-var disease="No disease found";
+var disease="No disease detected";
 
-if(symptoms.includes("fever") && symptoms.includes("cough")){
-disease="Possible Disease: Flu";
+if(selected.includes("fever") && selected.includes("cough")){
+disease="Flu";
 }
 
-else if(symptoms.includes("fever") && symptoms.includes("vomiting")){
-disease="Possible Disease: Food Poisoning";
+else if(selected.includes("fever") && selected.includes("vomiting")){
+disease="Food Poisoning";
 }
 
-else if(symptoms.includes("headache") && symptoms.includes("blurvision")){
-disease="Possible Disease: Migraine";
+else if(selected.includes("headache") && selected.includes("blurvision")){
+disease="Migraine";
 }
 
-else if(symptoms.includes("fatigue") && symptoms.includes("weightloss")){
-disease="Possible Disease: Diabetes";
+else if(selected.includes("fatigue") && selected.includes("weightloss")){
+disease="Diabetes";
 }
 
-else if(symptoms.includes("shortbreath") && symptoms.includes("chestpain")){
-disease="Possible Disease: Heart Problem";
+else if(selected.includes("shortbreath") && selected.includes("chestpain")){
+disease="Heart Problem";
 }
 
-else if(symptoms.includes("itching") && symptoms.includes("rash")){
-disease="Possible Disease: Skin Allergy";
+else if(selected.includes("itching") && selected.includes("rash")){
+disease="Skin Allergy";
 }
 
-document.getElementById("result").innerHTML=disease;
+else if(selected.includes("cold") && selected.includes("sorethroat")){
+disease="Common Cold";
+}
+
+else if(selected.includes("dizziness") && selected.includes("fatigue")){
+disease="Low Blood Pressure";
+}
+
+else if(selected.includes("diarrhea") && selected.includes("stomach")){
+disease="Stomach Infection";
+}
+
+else if(selected.includes("backpain") && selected.includes("legpain")){
+disease="Muscle Pain";
+}
+
+document.getElementById("result").innerHTML="🩺 Possible Disease: "+disease;
 
 }
 
@@ -94,25 +144,50 @@ document.getElementById("result").innerHTML=disease;
 
 <h3>Select 2 or 3 Symptoms</h3>
 
-<label><input type="checkbox" name="symptom" value="fever"> Fever</label><br>
-<label><input type="checkbox" name="symptom" value="cough"> Cough</label><br>
-<label><input type="checkbox" name="symptom" value="vomiting"> Vomiting</label><br>
-<label><input type="checkbox" name="symptom" value="headache"> Headache</label><br>
-<label><input type="checkbox" name="symptom" value="blurvision"> Blur Vision</label><br>
-<label><input type="checkbox" name="symptom" value="fatigue"> Fatigue</label><br>
-<label><input type="checkbox" name="symptom" value="weightloss"> Weight Loss</label><br>
-<label><input type="checkbox" name="symptom" value="shortbreath"> Short Breath</label><br>
-<label><input type="checkbox" name="symptom" value="chestpain"> Chest Pain</label><br>
-<label><input type="checkbox" name="symptom" value="itching"> Itching</label><br>
-<label><input type="checkbox" name="symptom" value="rash"> Skin Rash</label><br>
+<div class="symptoms">
 
-<br>
+<label><input type="checkbox" name="symptom" value="fever"> Fever</label>
+<label><input type="checkbox" name="symptom" value="cough"> Cough</label>
+<label><input type="checkbox" name="symptom" value="headache"> Headache</label>
+<label><input type="checkbox" name="symptom" value="stomach"> Stomach Pain</label>
+<label><input type="checkbox" name="symptom" value="cold"> Cold</label>
+<label><input type="checkbox" name="symptom" value="vomiting"> Vomiting</label>
+<label><input type="checkbox" name="symptom" value="fatigue"> Fatigue</label>
+<label><input type="checkbox" name="symptom" value="sorethroat"> Sore Throat</label>
+<label><input type="checkbox" name="symptom" value="chestpain"> Chest Pain</label>
+<label><input type="checkbox" name="symptom" value="dizziness"> Dizziness</label>
+
+<label><input type="checkbox" name="symptom" value="diarrhea"> Diarrhea</label>
+<label><input type="checkbox" name="symptom" value="constipation"> Constipation</label>
+<label><input type="checkbox" name="symptom" value="backpain"> Back Pain</label>
+<label><input type="checkbox" name="symptom" value="jointpain"> Joint Pain</label>
+<label><input type="checkbox" name="symptom" value="toothache"> Tooth Ache</label>
+<label><input type="checkbox" name="symptom" value="earpain"> Ear Pain</label>
+<label><input type="checkbox" name="symptom" value="rash"> Skin Rash</label>
+<label><input type="checkbox" name="symptom" value="itching"> Itching</label>
+<label><input type="checkbox" name="symptom" value="weightloss"> Weight Loss</label>
+<label><input type="checkbox" name="symptom" value="blurvision"> Blur Vision</label>
+
+<label><input type="checkbox" name="symptom" value="shortbreath"> Short Breath</label>
+<label><input type="checkbox" name="symptom" value="sweating"> Sweating</label>
+<label><input type="checkbox" name="symptom" value="nausea"> Nausea</label>
+<label><input type="checkbox" name="symptom" value="legpain"> Leg Pain</label>
+<label><input type="checkbox" name="symptom" value="neckpain"> Neck Pain</label>
+<label><input type="checkbox" name="symptom" value="anxiety"> Anxiety</label>
+<label><input type="checkbox" name="symptom" value="depression"> Depression</label>
+<label><input type="checkbox" name="symptom" value="sleep"> Sleep Problem</label>
+<label><input type="checkbox" name="symptom" value="hairfall"> Hair Fall</label>
+<label><input type="checkbox" name="symptom" value="dryskin"> Dry Skin</label>
+
+</div>
 
 <button onclick="predictDisease()">Predict Disease</button>
 
 </div>
 
-<h2 id="result"></h2>
+<br><br>
+
+<div id="result">Result will appear here</div>
 
 </body>
 </html>
