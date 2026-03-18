@@ -1,26 +1,40 @@
-let savedUser="";
-let savedPass="";
-
 function createAccount(){
 
-savedUser=document.getElementById("newUser").value;
-savedPass=document.getElementById("newPass").value;
+let user=document.getElementById("newUser").value;
+let pass=document.getElementById("newPass").value;
+
+if(user=="" || pass==""){
+document.getElementById("msg").innerHTML="Enter Username and Password";
+return;
+}
+
+/* Save in browser */
+
+localStorage.setItem("username",user);
+localStorage.setItem("password",pass);
 
 document.getElementById("msg").innerHTML="Account Created Successfully";
 
 }
+
 
 function login(){
 
 let u=document.getElementById("username").value;
 let p=document.getElementById("password").value;
 
-if(u==savedUser && p==savedPass){
+/* Get saved data */
+
+let savedUser=localStorage.getItem("username");
+let savedPass=localStorage.getItem("password");
+
+if(u===savedUser && p===savedPass){
 
 document.querySelector(".login-box").style.display="none";
 document.getElementById("mainPage").style.display="block";
 
-}else{
+}
+else{
 
 document.getElementById("msg").innerHTML="Wrong Username or Password";
 
@@ -77,20 +91,16 @@ let match=d.symptoms.filter(s=>symptoms.includes(s)).length;
 if(match>=2){
 
 output+=`
-
 <div class="card">
-
 <h3>${d.name}</h3>
-
 <p>Medicine: ${d.medicine}</p>
-
 </div>
-
 `;
 
 }
 
 });
+
 
 if(output==""){
 output="<h3>No disease detected</h3>";
