@@ -7,29 +7,61 @@
 
 <body>
 
-<div class="login-box">
+<div class="login" id="loginPage">
 
 <h1>🩺 Disease Prediction System</h1>
 
-<input type="text" id="username" placeholder="Enter Username">
-
-<input type="password" id="password" placeholder="Enter Password">
-
-<br><br>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
 
 <button onclick="login()">Login</button>
 
-<br><br>
+<p id="loginMsg"></p>
 
-<h3>Create Account</h3>
+</div>
 
-<input type="text" id="newuser" placeholder="Create Username">
 
-<input type="password" id="newpass" placeholder="Create Password">
+<div class="main" id="mainPage">
 
-<br><br>
+<h2>Select Symptoms</h2>
 
-<button onclick="register()">Register</button>
+<div class="symptoms">
+
+<label><input type="checkbox" value="Fever"> Fever</label>
+<label><input type="checkbox" value="Cough"> Cough</label>
+<label><input type="checkbox" value="Cold"> Cold</label>
+<label><input type="checkbox" value="Headache"> Headache</label>
+<label><input type="checkbox" value="Body Pain"> Body Pain</label>
+<label><input type="checkbox" value="Vomiting"> Vomiting</label>
+<label><input type="checkbox" value="Stomach Pain"> Stomach Pain</label>
+<label><input type="checkbox" value="Diarrhea"> Diarrhea</label>
+<label><input type="checkbox" value="Sweating"> Sweating</label>
+<label><input type="checkbox" value="Chills"> Chills</label>
+<label><input type="checkbox" value="Sneezing"> Sneezing</label>
+<label><input type="checkbox" value="Runny Nose"> Runny Nose</label>
+<label><input type="checkbox" value="Fatigue"> Fatigue</label>
+<label><input type="checkbox" value="Chest Pain"> Chest Pain</label>
+<label><input type="checkbox" value="Short Breath"> Short Breath</label>
+<label><input type="checkbox" value="Sore Throat"> Sore Throat</label>
+<label><input type="checkbox" value="Dizziness"> Dizziness</label>
+<label><input type="checkbox" value="Nausea"> Nausea</label>
+<label><input type="checkbox" value="Loss Appetite"> Loss Appetite</label>
+<label><input type="checkbox" value="Muscle Pain"> Muscle Pain</label>
+<label><input type="checkbox" value="Joint Pain"> Joint Pain</label>
+<label><input type="checkbox" value="High Fever"> High Fever</label>
+<label><input type="checkbox" value="Skin Rash"> Skin Rash</label>
+<label><input type="checkbox" value="Dry Cough"> Dry Cough</label>
+<label><input type="checkbox" value="Loss Taste"> Loss Taste</label>
+<label><input type="checkbox" value="Loss Smell"> Loss Smell</label>
+<label><input type="checkbox" value="Back Pain"> Back Pain</label>
+<label><input type="checkbox" value="Thirst"> Thirst</label>
+
+</div>
+
+<button onclick="predictDisease()">Predict</button>
+<button onclick="logout()">Logout</button>
+
+<div id="results"></div>
 
 </div>
 
