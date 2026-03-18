@@ -1,59 +1,44 @@
 body{
-margin:0;
+
 font-family:Arial;
 text-align:center;
+margin:0;
+
+/* MULTIPLE COLOR BACKGROUND */
+
+background: linear-gradient(-45deg,#ff6a00,#ee0979,#00c6ff,#43cea2,#7f00ff);
+background-size:400% 400%;
+animation:gradientMove 10s infinite;
+
 color:white;
 
-/* Animated background */
-
-background: linear-gradient(-45deg,#ff6a00,#ee0979,#00c6ff,#0072ff,#43cea2);
-background-size: 400% 400%;
-animation: gradientBG 10s ease infinite;
-
 }
 
-/* Gradient animation */
+@keyframes gradientMove{
 
-@keyframes gradientBG{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 
 }
-
-/* LOGIN BOX */
 
 .login-box{
 
 background:rgba(255,255,255,0.2);
-padding:40px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
+padding:30px;
+margin-top:120px;
+border-radius:10px;
 
 }
-
-/* INPUT */
 
 input{
 
 padding:10px;
-margin:8px;
-border-radius:6px;
+margin:5px;
 border:none;
-width:200px;
+border-radius:5px;
 
 }
-
-/* BUTTON */
 
 button{
 
@@ -62,41 +47,47 @@ margin:10px;
 border:none;
 border-radius:6px;
 
-/* colorful button */
+/* colourful button */
 
-background:linear-gradient(45deg,#ff9a9e,#fad0c4,#fbc2eb);
-color:black;
-font-weight:bold;
+background:linear-gradient(45deg,#ff9a9e,#fad0c4,#fbc2eb,#a1c4fd);
 cursor:pointer;
-
-}
-
-/* DASHBOARD CARDS */
-
-.dash-card{
-
-background:linear-gradient(135deg,#a1c4fd,#c2e9fb);
-padding:25px;
-border-radius:12px;
-color:black;
-width:200px;
-margin:10px;
-display:inline-block;
 font-weight:bold;
 
 }
 
-/* RESULT CARD */
+.main{
+
+display:none;
+padding:30px;
+
+}
+
+.symptoms{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin:20px;
+
+}
+
+label{
+
+background:white;
+color:black;
+padding:10px;
+border-radius:6px;
+
+}
 
 .card{
 
 background:linear-gradient(135deg,#f6d365,#fda085,#ff9a9e,#a18cd1);
 padding:20px;
 margin:15px;
-border-radius:12px;
+border-radius:10px;
 color:black;
-font-weight:bold;
 display:inline-block;
-width:250px;
+width:220px;
 
 }
