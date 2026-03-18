@@ -1,21 +1,28 @@
+let savedUser="";
+let savedPass="";
+
+function createAccount(){
+
+savedUser=document.getElementById("newUser").value;
+savedPass=document.getElementById("newPass").value;
+
+document.getElementById("msg").innerHTML="Account Created Successfully";
+
+}
+
 function login(){
 
 let u=document.getElementById("username").value;
 let p=document.getElementById("password").value;
 
-if(u=="admin" && p=="1234"){
+if(u==savedUser && p==savedPass){
 
-document.getElementById("loginPage").classList.add("open");
-
-setTimeout(()=>{
-document.getElementById("loginPage").style.display="none";
+document.querySelector(".login-box").style.display="none";
 document.getElementById("mainPage").style.display="block";
-},1000);
 
-}
-else{
+}else{
 
-document.getElementById("loginMsg").innerHTML="Invalid Login";
+document.getElementById("msg").innerHTML="Wrong Username or Password";
 
 }
 
@@ -42,7 +49,7 @@ medicine:"Paracetamol"
 
 {
 name:"Common Cold",
-symptoms:["Cold","Cough","Sneezing","Runny Nose"],
+symptoms:["Cold","Sneezing","Runny Nose","Cough"],
 medicine:"Antihistamine"
 },
 
@@ -53,9 +60,9 @@ medicine:"ORS"
 },
 
 {
-name:"Malaria",
-symptoms:["Fever","Sweating","Chills"],
-medicine:"Antimalarial"
+name:"Dengue",
+symptoms:["High Fever","Joint Pain","Skin Rash"],
+medicine:"Doctor Consultation"
 }
 
 ];
@@ -84,7 +91,6 @@ output+=`
 }
 
 });
-
 
 if(output==""){
 output="<h3>No disease detected</h3>";
